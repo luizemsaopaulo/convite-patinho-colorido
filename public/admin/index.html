@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#1673ba">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Painel privado de confirmações de Benício e Bettina.">
+  <title>Painel de Presenças | Benício & Bettina</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/png" href="./icon-192.png">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <link rel="stylesheet" href="./style.css?v=1">
+  <script src="./app.js?v=1" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <span class="tag">🎈 ORGANIZAÇÃO DA FESTA</span>
+      <h1>Benício <span>&amp;</span> Bettina</h1>
+      <p>Painel de confirmações • Turma da Mônica</p>
+      <button id="installBtn" type="button" class="install" hidden>📲 Instalar aplicativo</button>
+    </header>
+    <section class="controls" aria-label="Controles do painel">
+      <p id="accessStatus" class="message" role="status" aria-live="polite">Carregando suas confirmações...</p>
+      <div class="buttons">
+        <button id="refreshBtn" type="button">↻ Atualizar lista</button>
+        <button id="exportBtn" type="button" disabled>↓ Exportar CSV</button>
+      </div>
+    </section>
+    <section class="summary" aria-label="Resumo das respostas">
+      <div class="count total"><small>Respostas</small><strong id="totalCount">—</strong></div>
+      <div class="count yes"><small>Confirmaram ✅</small><strong id="yesCount">—</strong></div>
+      <div class="count no"><small>Não poderão ❌</small><strong id="noCount">—</strong></div>
+    </section>
+    <section class="listing" aria-labelledby="listTitle">
+      <div class="list-heading"><h2 id="listTitle">Lista de respostas</h2><span id="updatedLabel">—</span></div>
+      <label for="filter" class="sr-only">Buscar pelo nome</label>
+      <input id="filter" type="search" placeholder="🔎 Buscar pelo nome..." autocomplete="off">
+      <div id="records" class="records" aria-live="polite"><p class="empty">Abrindo seu painel...</p></div>
+    </section>
+    <footer>🔒 A lista é privada. Não compartilhe o link de administração.<p>O convite público não mostra os nomes dos convidados.</p></footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,11 @@
+/* Chama a atenção para o RSVP com uma animação suave e intervalos de descanso. */
+#openBtn.attention-cta{position:relative;isolation:isolate;transform-origin:50% 70%;animation:convite-chamar-atencao 4.2s ease-in-out infinite;will-change:transform}
+#openBtn.attention-cta::before{content:"";position:absolute;inset:-9px;border:3px solid rgba(255,216,54,.75);border-radius:23px;opacity:0;z-index:-1;pointer-events:none;animation:convite-anel 4.2s ease-out infinite}
+#openBtn .cta-sparkle{display:inline-block;font-size:.95em;animation:convite-brilho 4.2s ease-in-out infinite}
+#openBtn.attention-cta:hover,#openBtn.attention-cta:focus-visible{animation-play-state:paused;transform:translateY(-2px)}
+#openBtn.attention-cta:hover::before,#openBtn.attention-cta:hover .cta-sparkle,#openBtn.attention-cta:focus-visible::before,#openBtn.attention-cta:focus-visible .cta-sparkle{animation-play-state:paused}
+#openBtn.attention-cta:active{animation-play-state:paused;transform:translate(3px,3px)}
+@keyframes convite-chamar-atencao{0%,8%,22%,100%{transform:translateY(0) rotate(0) scale(1)}10%{transform:translateY(-6px) rotate(-1.3deg) scale(1.045)}13%{transform:translateY(-3px) rotate(1.3deg) scale(1.035)}16%{transform:translateY(-6px) rotate(-.8deg) scale(1.045)}19%{transform:translateY(0) rotate(0) scale(1)}}
+@keyframes convite-anel{0%,8%,22%,100%{opacity:0;transform:scale(.95)}10%{opacity:.85;transform:scale(1.01)}22%{opacity:0;transform:scale(1.14)}}
+@keyframes convite-brilho{0%,9%,21%,100%{transform:rotate(0) scale(1)}12%{transform:rotate(-18deg) scale(1.25)}17%{transform:rotate(16deg) scale(1.32)}}
+@media(prefers-reduced-motion:reduce){#openBtn.attention-cta,#openBtn.attention-cta::before,#openBtn .cta-sparkle{animation:none!important;will-change:auto}}
