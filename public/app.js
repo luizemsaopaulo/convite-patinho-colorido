@@ -16,10 +16,9 @@
     music.setAttribute('aria-label', audio.paused ? 'Tocar música' : 'Pausar música');
   };
   $('#openBtn').addEventListener('click', async () => {
-    intro.hidden = true;
     invite.hidden = false;
     music.hidden = false;
-    window.scrollTo({top: 0, behavior: 'instant'});
+    invite.scrollIntoView({behavior: 'smooth', block: 'start'});
     try { await audio.play(); } catch (e) { /* navegador pode bloquear; botão habilitado */ }
     setMusicLabel();
   });

@@ -3,93 +3,69 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#ed3334">
-  <meta name="description" content="Convite para comemorar 1 aninho de Bettina e Benício. Confirme sua presença com seu nome e sim ou não.">
-  <title>Turma da Bettina & Benício | Convite</title>
-  <link rel="stylesheet" href="./style.css?v=2">
+  <meta name="theme-color" content="#0b93da">
+  <meta name="description" content="Convite de 1 aninho de Benício e Bettina com a Turma da Mônica. Confirme sua presença.">
+  <title>1 aninho de Benício e Bettina | Convite</title>
+  <link rel="stylesheet" href="./style.css?v=3">
 </head>
 <body>
-  <div class="dots" aria-hidden="true"></div>
-  <button id="musicBtn" class="music" aria-label="Ativar música" title="Ativar ou pausar música" hidden>♫ <span>Música</span></button>
+  <button id="musicBtn" class="music" type="button" aria-label="Ativar música" title="Ativar ou pausar a música do Patinho" hidden>♫ <span>Música</span></button>
   <main>
-    <section id="abertura" class="scene opening" aria-labelledby="introTitle">
-      <div class="comic-cover">
-        <div class="color-stripes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-        <div class="issue-tag">EDIÇÃO ESPECIAL <span>★</span> DE ANIVERSÁRIO</div>
-        <div class="cover-inner">
-          <p class="comic-brand">TURMA DA</p>
-          <h1 id="introTitle" class="comic-names"><span>Bettina</span><b>&</b><span>Benício!</span></h1>
-          <div class="age-plaque"><span>1 ANINHO!</span></div>
-          <div class="comic-art" aria-hidden="true">
-            <div class="star star-one">★</div>
-            <div class="balloon bl-red"><span></span></div>
-            <div class="balloon bl-green"><span></span></div>
-            <div class="balloon bl-blue"><span></span></div>
-            <div class="friend friend-one">🎈</div>
-            <div class="friend friend-two">🎁</div>
-            <div class="friend friend-three">🎉</div>
-            <div class="big-wow">VIVA!</div>
-          </div>
-          <div class="speech"><p>Ei, você! Vem fazer parte da nossa turminha e comemorar com a gente!</p></div>
-          <button id="openBtn" class="primary">ABRIR MEU CONVITE <span aria-hidden="true">➜</span></button>
-          <p class="sound-hint">♫ Toque para abrir com música</p>
-        </div>
-        <div class="cover-foot">05 DE DEZEMBRO <span>•</span> PIRACAIA - SP</div>
+    <section id="abertura" class="opening" aria-labelledby="introTitle">
+      <h1 id="introTitle" class="sr-only">Convite do primeiro aniversário de Benício e Bettina</h1>
+      <div class="invitation-art">
+        <img src="./convite-original.png" width="1060" height="1484" fetchpriority="high" alt="Convite especial de 1 aninho de Benício e Bettina, com a Turma da Mônica. Dia 05/12/2026 às 14h00. Vai ter piscina: as crianças podem levar biquíni, sunga e roupa de banho. Local: Rua Júlia Troster, 249, Santos Reis, Piracaia - SP.">
+      </div>
+      <div class="entry">
+        <button id="openBtn" type="button" class="primary">🎉 Confirmar minha presença</button>
+        <p>♫ A música do Patinho começa quando você tocar no botão.</p>
       </div>
     </section>
 
-    <section id="convite" class="scene invitation" hidden aria-labelledby="inviteTitle">
+    <section id="convite" class="confirmation" hidden aria-labelledby="rsvpTitle">
       <div class="paper">
-        <div class="paper-head">
-          <span class="corner-sticker">EDIÇÃO ESPECIAL</span>
-          <p class="topbrand">TURMA DA</p>
-          <h1 id="inviteTitle">Bettina <span>&</span> Benício!</h1>
-          <div class="pill-age">1 ANINHO DE MUITA ALEGRIA!</div>
-          <p class="invite-intro">A festa está chegando e a nossa história vai ficar ainda mais divertida com a sua presença!</p>
+        <div class="panel-title">
+          <span class="kicker">TURMA DA MÔNICA • 1 ANINHO</span>
+          <h2 id="rsvpTitle">Você vem comemorar com a gente?</h2>
+          <p>Benício e Bettina vão amar ter você nesta festa especial!</p>
         </div>
-
-        <div class="comic-panels">
-          <div class="panel panel-date"><span class="panel-icon">📅</span><span class="panel-label">Quando?</span><strong>05 de dezembro</strong></div>
-          <div class="panel panel-place"><span class="panel-icon">📍</span><span class="panel-label">Onde?</span><strong>Piracaia - SP</strong></div>
-        </div>
-
         <aside class="gift-note">
-          <span class="gift-icon" aria-hidden="true">🎁</span>
-          <div><strong>Um recadinho da turminha!</strong><p>Para quem quiser presentear: <b>as crianças vestem tamanhos 2 e 3.</b> Mas fique à vontade — o maior presente é ter você com a gente!</p></div>
+          <span aria-hidden="true">🎁</span>
+          <p><strong>Uma informação para quem quiser presentear:</strong> as crianças vestem tamanhos <strong>2 e 3</strong>. O maior presente é a sua presença!</p>
         </aside>
-
-        <section class="rsvp" aria-labelledby="rsvpTitle">
-          <div class="rsvp-top">
-            <span class="rsvp-stamp">RESPOSTA</span>
-            <h2 id="rsvpTitle">Você vem pra festa?</h2>
-            <p>É rapidinho! Coloque seu nome e marque <strong>sim</strong> ou <strong>não</strong>.</p>
-          </div>
+        <div class="rsvp">
           <form id="rsvpForm" novalidate>
-            <label for="guestName">Seu nome <span class="asterisk">*</span></label>
-            <input id="guestName" name="guestName" type="text" autocomplete="name" minlength="2" maxlength="100" placeholder="Como você se chama?" required>
+            <label for="guestName">Qual é o seu nome? <span class="asterisk">*</span></label>
+            <input id="guestName" name="guestName" type="text" autocomplete="name" minlength="2" maxlength="100" placeholder="Digite seu nome" required>
             <fieldset>
-              <legend>Vai comparecer? <span class="asterisk">*</span></legend>
+              <legend>Você vai comparecer? <span class="asterisk">*</span></legend>
               <div class="options">
-                <label class="choice yes"><input type="radio" name="attending" value="yes" required><span><strong>✓ Vou sim!</strong><small>Estarei na festa!</small></span></label>
-                <label class="choice no"><input type="radio" name="attending" value="no"><span><strong>✕ Não vou</strong><small>Não poderei ir</small></span></label>
+                <label class="choice yes">
+                  <input type="radio" name="attending" value="yes" required>
+                  <span><strong>✓ Sim, eu vou!</strong><small>Estarei na festa!</small></span>
+                </label>
+                <label class="choice no">
+                  <input type="radio" name="attending" value="no">
+                  <span><strong>✕ Não poderei ir</strong><small>Desta vez não vou.</small></span>
+                </label>
               </div>
             </fieldset>
             <div class="trap" aria-hidden="true"><label for="website">Deixe em branco</label><input type="text" id="website" tabindex="-1" autocomplete="off"></div>
-            <button class="primary submit" type="submit">ENVIAR MINHA RESPOSTA <span aria-hidden="true">➜</span></button>
+            <button class="primary submit" type="submit">Enviar minha resposta</button>
             <p id="status" class="status" role="status" aria-live="polite"></p>
           </form>
-        </section>
+        </div>
         <section id="success" class="success" hidden aria-live="polite">
           <div class="success-emoji" aria-hidden="true">🎉</div>
-          <h2>RESPOSTA REGISTRADA!</h2>
+          <h2>Resposta registrada!</h2>
           <p id="successMessage"></p>
           <button type="button" id="editBtn" class="secondary">Alterar minha resposta</button>
         </section>
-        <footer>Feito com muito carinho! <span>♥</span> Bettina & Benício</footer>
+        <footer>Feito com carinho para Benício &amp; Bettina ❤️</footer>
       </div>
     </section>
   </main>
   <audio id="themeAudio" src="./patinho.mp3" preload="none" loop></audio>
-  <script src="./app.js?v=2" defer></script>
+  <script src="./app.js?v=3" defer></script>
 </body>
 </html>
