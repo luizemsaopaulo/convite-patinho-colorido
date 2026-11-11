@@ -1,0 +1,9 @@
+name = "convite-patinho-colorido"
+pages_build_output_dir = "./public"
+compatibility_date = "2026-11-11"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "convite-patinho-rsvp-db"
+database_id = "17f1cc12-7819-4b72-a478-bda2a73349d9"
+preview_database_id = "DB"
