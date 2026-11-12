@@ -39,7 +39,7 @@ Mantenha as alterações sincronizadas com o repositório GitHub `luizemsaopaulo
 ## Dados
 - O formulário público aceita apenas nome e comparecimento Sim/Não.
 - Uma nova resposta com o mesmo nome normalizado substitui a resposta anterior. Pessoas diferentes com nomes idênticos podem conflitar.
-- A API administrativa só aceita consultas autenticadas por link privado, e não permite modificar ou excluir dados.
+- A API administrativa aceita consultas autenticadas por link privado e exclusão individual de registros após confirmação explícita no painel. A exclusão é permanente e protegida pela mesma chave privada.
 - O banco real não deve receber respostas fictícias de testes.
 - A prévia do WhatsApp pode permanecer temporariamente em cache no aplicativo.
 

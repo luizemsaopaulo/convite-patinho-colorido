@@ -69,5 +69,5 @@ const manifest=JSON.parse(fs.readFileSync(path.join(root,'public/admin/manifest.
 check(manifest.display==='standalone' && manifest.scope==='/admin/','Painel instalavel como PWA');
 const adminJs=fs.readFileSync(path.join(root,'public/admin/app.js'),'utf8');
 check(adminJs.includes('getItem(key)') && adminJs.includes('Authorization:'),'Painel envia credencial privada');
-check(adminJs.includes('const esc=v=>'),'Exportacao CSV ativa');
+check(adminJs.includes('const escapeCsv=value=>'),'Exportacao CSV ativa');
 console.log('OK: '+checked+' verificacoes sem alterar o banco de dados de producao.');
