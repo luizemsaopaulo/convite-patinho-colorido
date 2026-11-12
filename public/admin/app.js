@@ -17,11 +17,18 @@
   for(const item of rows){const row=document.createElement('div');row.className='guest';const left=document.createElement('div');const name=document.createElement('div');name.className='guest-name';name.textContent=item.name;const date=document.createElement('div');date.className='date';date.textContent='Respondido em '+fmtDate(item.updatedAt);left.append(name,date);const state=document.createElement('span');state.className='state '+(item.attending?'yes':'no');state.textContent=item.attending?'✓ Vai':'✕ Não vai';row.append(left,state);root.append(row)}
  };
  const refresh=async()=>{
-  if(!token){ feedback('A consulta privada ainda precisa ser ativada. Os nomes não estão disponíveis publicamente.',true);$('#records').innerHTML='<p class="empty">O convite público não fornece acesso a esta lista.</p>';return}
+  if(!token){ feedback('Abra o painel pelo atalho privado salvo na área de trabalho do Lenovo.',true);$('#records').innerHTML='<p class="empty">As confirmações só aparecem com o link privado do organizador.</p>';return}
   $('#refreshBtn').disabled=true;feedback('Atualizando respostas...');
   try{
    const response=await fetch('/api/admin',{headers:{Authorization:'Bearer '+token,Accept:'application/json'},cache:'no-store'});
-   const data=await response.json();if(!response.ok||!data.ok)throw new Error(data.error||'Não foi possível atualizar.');
+   const data=await response.json();
+   if(response.status===401){
+    token='';records=[];try{localStorage.removeItem(key)}catch{}
+    $('#exportBtn').disabled=true;
+    $('#totalCount').textContent='—';$('#yesCount').textContent='—';$('#noCount').textContent='—';
+    throw new Error('Acesso privado inválido. Reabra o atalho salvo na área de trabalho do Lenovo.');
+   }
+   if(!response.ok||!data.ok)throw new Error(data.error||'Não foi possível atualizar.');
    records=data.records||[];
    $('#totalCount').textContent=records.length;
    $('#yesCount').textContent=records.filter(x=>x.attending).length;
@@ -34,7 +41,7 @@
  $('#refreshBtn').addEventListener('click',refresh);
  $('#filter').addEventListener('input',render);
  $('#exportBtn').addEventListener('click',()=>{
-  const esc=v=>'"'+String(v).replace(/"/g,'""')+'"';
+  const esc=v=>{const raw=String(v);const safe='=+-@'.includes(raw.trimStart().charAt(0))?"'"+raw:raw;return '"'+safe.replace(/"/g,'""')+'"'};
   const csv='\ufeffNome;Presença;Atualização\r\n'+records.map(r=>[esc(r.name),esc(r.attending?'Sim':'Não'),esc(fmtDate(r.updatedAt))].join(';')).join('\r\n');
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='presencas-benicio-bettina.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)
  });
